@@ -1,14 +1,14 @@
-name: CI/CD Pipeline - Secure Delivery Automation
+name: DevSecOps Security Scan
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  security-scan:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -31,6 +31,5 @@ jobs:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/secure-delivery-automation:latest
           format: 'table'
           exit-code: '0'
-
-      - name: Push Image to Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/secure-delivery-automation:latest
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
