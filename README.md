@@ -1,5 +1,8 @@
-![CI/CD Pipeline](https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/ci.yml/badge.svg?branch=main)
-![DevSecOps Pipeline](https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/devsecops.yml/badge.svg?branch=main)
+<p align="center">
+  <img src="https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI/CD Pipeline"/>
+  <img src="https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/devsecops.yml/badge.svg?branch=main" alt="DevSecOps Pipeline"/>
+</p>
+
 
 # Secure Delivery Automation 🚀
 
