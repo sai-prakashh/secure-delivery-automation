@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline - Secure Delivery Automation
 
 on:
   push:
