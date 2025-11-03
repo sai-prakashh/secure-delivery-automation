@@ -1,10 +1,13 @@
+![CI/CD Pipeline](https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/ci.yml/badge.svg?branch=main)
+![DevSecOps Pipeline](https://github.com/sai-prakashh/secure-delivery-automation/actions/workflows/devsecops.yml/badge.svg?branch=main)
+
 # Secure Delivery Automation 🚀
 
 **Secure Delivery Automation** is a DevSecOps starter project that demonstrates how to integrate security within a Continuous Integration and Continuous Delivery (CI/CD) pipeline. It provides a practical foundation for developers and security enthusiasts to understand how security can be automated at every stage of the software delivery process.
 
 ---
 
-##  Overview
+## 🧩 Overview
 
 This project builds a secure web application using Docker, GitHub, and CI/CD concepts. It’s designed to show how teams can:
 - Automate builds and deployments.
@@ -14,7 +17,7 @@ This project builds a secure web application using Docker, GitHub, and CI/CD con
 
 ---
 
-##  Features
+## ⚙️ Features
 
 - 🐳 **Containerized Application** – Uses Docker to build and deploy a Flask-based app.
 - 🔒 **Security Integrated** – Demonstrates image scanning and secure pipeline design.
@@ -23,19 +26,19 @@ This project builds a secure web application using Docker, GitHub, and CI/CD con
 
 ---
 
-##  Tech Stack
+## 🧠 Tech Stack
 
 | Category         | Tools Used                         |
 |------------------|------------------------------------|
 | Language         | Python (Flask)                     |
 | Containerization | Docker                             |
-| SCM & CI/CD      | Git, GitHub                        |
-| Security         | Docker Scout, OWASP best practices |
+| SCM & CI/CD      | Git, GitHub Actions                |
+| Security         | Trivy, Docker Scout, OWASP         |
 | Platform         | Linux / WSL2                       |
 
 ---
 
-##  Getting Started
+## 🚀 Getting Started
 
 ### 1️⃣ Clone this repository
 ```bash
