@@ -20,7 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt || echo "No requirements.txt found"
+          pip install flask pytest
+
+      - name: Run tests
+        run: |
+          pytest tests/ --maxfail=1 --disable-warnings -q
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -39,21 +43,20 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/secure-delivery-automation:latest
 
-      - name: Run automated tests
-        run: |
-          pip install pytest
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
-          pytest tests/ --maxfail=1 --disable-warnings -q
-
-      - name: Scan image for vulnerabilities using Trivy
+      - name: Generate Trivy Scan Report
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/secure-delivery-automation:latest
           format: 'table'
-          exit-code: '0'
-          ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'HIGH,CRITICAL'
+          output: 'trivy-scan-report.txt'
+
+      - name: Upload Trivy Scan Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-report
+          path: trivy-scan-report.txt
 
       - name: Push Docker image to Docker Hub
         uses: docker/build-push-action@v5
